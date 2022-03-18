@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import {TypeOrmModule} from "@nestjs/typeorm";
+import {ConfigModule} from "@nestjs/config";
+import {SessionService} from "./session.service";
 
 @Module({
   imports: [
@@ -11,8 +14,12 @@ import { join } from 'path';
       rootPath: join(__dirname, '../../client/', 'dist/client'),
       exclude: ['/api'],
     }),
+    ConfigModule.forRoot({
+      envFilePath: __dirname + "/../../.env",
+    }),
+    TypeOrmModule.forRoot(),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,SessionService],
 })
 export class AppModule {}

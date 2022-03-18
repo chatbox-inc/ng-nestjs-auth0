@@ -1,7 +1,6 @@
-## Angular Nest.js Template 
+## Angular Nest.js Auth0 
 
-Zenn.dev
-
-Heroku 
-
-https://dry-reef-54728.herokuapp.com/
+- Angular + Next.js 
+- Auth0 で認証する
+- Angular から Auth0 は見えない
+- Next.js = Auth0 は、
