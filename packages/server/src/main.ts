@@ -11,8 +11,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   console.log("session bootstrap")
-  await getConnection().manager.save(new Session())
-  const sessionRepository = getConnection().getRepository(Session);
+  // await getConnection().manager.save(new Session())
+  const sessionRepository = getConnection().manager.getRepository(Session);
 
   app.setGlobalPrefix('api');
   app.use(
