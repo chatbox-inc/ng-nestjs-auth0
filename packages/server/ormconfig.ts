@@ -7,10 +7,10 @@ const config = {
     type: 'postgres',
     url: process.env.DATABASE_URL,
     entities: [
-        "./dist/src/entities/*.js"
+        __dirname + "/dist/src/entities/*.js"
     ],
     migrations: [
-        "./dist/src/migrations/*.js"
+        __dirname + "/dist/src/migrations/*.js"
     ],
     extra: {
         ssl: process.env.DATABASE_SSL_MODE !== 'false' ? { rejectUnauthorized: false } : false,
