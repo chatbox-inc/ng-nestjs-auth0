@@ -1,6 +1,8 @@
 import {Entity, Column, Index, PrimaryColumn} from "typeorm";
 import { ISession } from "connect-typeorm";
 
+console.log("entity loaded")
+
 @Entity("t_session")
 export class Session implements ISession {
     @Index()

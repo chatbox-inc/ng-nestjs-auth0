@@ -2,6 +2,8 @@ import {Entity, PrimaryGeneratedColumn, Column, Index, OneToMany} from "typeorm"
 import {UserAuthEntity} from "./user-auth.entity";
 import {DatetimesColumn} from "./columns/datetimes.column";
 
+console.log("entity users loaded")
+
 @Entity("t_users")
 export class UserEntity {
 

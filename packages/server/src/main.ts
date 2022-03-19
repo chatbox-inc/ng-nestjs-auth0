@@ -10,6 +10,8 @@ import {getConnection} from "typeorm";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  console.log("session bootstrap")
+
   const sessionRepository = getConnection().getRepository(Session);
 
   app.setGlobalPrefix('api');
