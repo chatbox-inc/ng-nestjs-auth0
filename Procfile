@@ -1,1 +1,1 @@
-web: node packages/server/dist/main
+web: node packages/server/dist/src/main

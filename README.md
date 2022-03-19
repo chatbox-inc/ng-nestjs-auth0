@@ -4,3 +4,5 @@
 - Auth0 で認証する
 - Angular から Auth0 は見えない
 - Next.js = Auth0 は、
+
+git push 
