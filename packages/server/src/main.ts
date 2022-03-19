@@ -11,7 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   console.log("session bootstrap")
-
+  await getConnection().manager.save(new Session())
   const sessionRepository = getConnection().getRepository(Session);
 
   app.setGlobalPrefix('api');
@@ -38,6 +38,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('apidoc', app, document);
+
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
