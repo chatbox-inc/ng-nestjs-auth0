@@ -18,25 +18,15 @@ export class SessionService {
     return this.request.session
   }
 
-  add(){
-    this.session().views ++
-    return this.session().views
-  }
-
-  time(){
-    const time = this.session().time
-    if(!time){
-      this.session().time = new Date
-    }
-    return this.session().time
-  }
-
   get user():UserEntity{
     return this.session().user
   }
 
   set user(user:UserEntity){
+    this.session().lota
     this.session().user = user
   }
+
+
 
 }

@@ -14,6 +14,8 @@ async function bootstrap() {
   // await getConnection().manager.save(new Session())
   const sessionRepository = getConnection().manager.getRepository(Session);
 
+  console.log(process.env.APP_IGNORE_SECURECOOKIE)
+
   app.setGlobalPrefix('api');
   app.use(
       session({
@@ -21,6 +23,8 @@ async function bootstrap() {
         resave: false,
         saveUninitialized: false,
         cookie: {
+          httpOnly: true,
+          secure: !(process.env.APP_IGNORE_SECURECOOKIE === "true"),
           maxAge: 7 * 24 * 60 * 60 * 1000,
         },
         store: new TypeormStore({

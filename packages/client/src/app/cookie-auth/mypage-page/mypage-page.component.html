@@ -1,0 +1,13 @@
+<app-layout *ngIf="auth.user$ | async as user">
+  <p>mypage-page works!</p>
+
+  <div class="my-5">
+    <p class="mb-3">
+      こんにちは、 {{user.lastName}} {{user.firstName}} さん
+    </p>
+    <p class="mb-3">
+      email : {{user.email}}
+    </p>
+  </div>
+
+</app-layout>

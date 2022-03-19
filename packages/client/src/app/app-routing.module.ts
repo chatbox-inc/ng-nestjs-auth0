@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginPageComponent} from "./login-page/login-page.component";
-import {MypagePageComponent} from "./mypage-page/mypage-page.component";
-import {SignupPageComponent} from "./signup-page/signup-page.component";
+import {LoginPageComponent} from "./cookie-auth/login-page/login-page.component";
+import {MypagePageComponent} from "./cookie-auth/mypage-page/mypage-page.component";
+import {SignupPageComponent} from "./cookie-auth/signup-page/signup-page.component";
 
 const routes: Routes = [
-  {path:"",redirectTo:"login",pathMatch:"full"},
-  {path:"login",component: LoginPageComponent},
-  {path:"mypage",component: MypagePageComponent},
-  {path:"signup",component: SignupPageComponent},
+  {path:"",redirectTo:"cookie/login",pathMatch:"full"},
+  {path: "cookie", loadChildren: () => import("./cookie-auth/cookie-auth.module").then(m=>m.CookieAuthModule)}
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<app-layout>
+  <p>signup-page works!</p>
+
+  <div class="mb-5">
+    <form [formGroup]="form">
+      <div class="mb-5">
+        <label class="block">email</label>
+        <input type="email" formControlName="email">
+      </div>
+      <div class="mb-5">
+        <label class="block">name sei</label>
+        <input type="text" formControlName="lastName">
+      </div>
+      <div class="mb-5">
+        <label class="block">name mei</label>
+        <input type="text" formControlName="firstName">
+      </div>
+      <div class="mb-5">
+        <label class="block">password</label>
+        <input type="password" formControlName="password">
+      </div>
+    </form>
+    <div class="mb-5">
+      <a (click)="submit()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        会員登録
+      </a>
+    </div>
+  </div>
+</app-layout>

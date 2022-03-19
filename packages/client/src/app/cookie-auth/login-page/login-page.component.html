@@ -1,0 +1,39 @@
+<app-layout >
+  <p>login-page works!</p>
+
+  <div class="mb-5">
+    <form [formGroup]="form">
+      <div class="mb-5">
+        <label class="block">email</label>
+        <input type="email" formControlName="email" >
+      </div>
+      <div class="mb-5">
+        <label class="block">password</label>
+        <input type="password" formControlName="password" >
+      </div>
+    </form>
+    <div class="mb-5">
+      <a (click)="login()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        ログイン
+      </a>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    アカウントをお持ちでない方は、
+    <a class="underline" routerLink="/cookie/signup">こちら</a>
+    から会員登録を行ってください。
+  </div>
+
+  <div class="mb-5">
+    <h3 class="font-bold">debbug</h3>
+    <div>
+      <a class="underline" routerLink="/cookie/mypage">認証ページ</a>
+    </div>
+    <div>
+      <a class="underline" routerLink="/cookie/mypage2">認証ページ2</a>
+    </div>
+
+
+  </div>
+</app-layout>

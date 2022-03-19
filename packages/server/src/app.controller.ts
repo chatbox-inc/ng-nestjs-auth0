@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, Session, UseGuards} from '@nestjs/common';
+import {Body, Controller, Get, Post, Session, UnauthorizedException, UseGuards} from '@nestjs/common';
 import { AppService } from './app.service';
 import {Connection, createConnection, getConnection} from "typeorm";
 import {UserEntity} from "./entities/user.entity";
@@ -23,10 +23,10 @@ export class AppController {
   ): Promise<any> {
     // ユーザの挿入
     const {user,auth} = await this.appService.signup(
-      "infoddddddddddddddd@chatbox-inc.com",
-      "hogehoge",
-      "hoge",
-      "piyo"
+      body.email,
+      body.password,
+      body.firstName,
+      body.lastName,
     );
     this.session.user = user
 
@@ -46,14 +46,24 @@ export class AppController {
 
   @Post("/login")
   async login(@Body() body){
-    const {user,auth} = await this.appService.login(
-        "info22ddddddddddddd@chatbox-inc.com",
-        "hogehoge",
+    const user = await this.appService.login(
+        body.email,
+        body.password
     );
-    this.session.user = user
+    if(user){
+      this.session.user = user
+    }else{
+      throw new UnauthorizedException()
+    }
 
     return {
       user: this.session.user
     }
+  }
+
+  @Post("/logout")
+  async logout(@Body() body){
+    this.session.session().destroy()
+    return {}
   }
 }
