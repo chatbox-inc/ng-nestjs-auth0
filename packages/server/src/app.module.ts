@@ -11,7 +11,7 @@ import {SessionService} from "./session.service";
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../client/', 'dist/client'),
+      rootPath: join(__dirname, '/../../../client/', 'dist/client'),
       exclude: ['/api'],
     }),
     ConfigModule.forRoot({
